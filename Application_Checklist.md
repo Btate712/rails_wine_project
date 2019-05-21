@@ -59,11 +59,6 @@
   - Once the minimum project requirements are met, I plan to add the following
     additional features as time permits:
     - Responsive CSS layout
-    - Wines are suggested for a user based on the reviews of users with similar
-      tastes
-      - This feature will require an alternate rating algorithm that determines
-        which other users have similar tastes and weights their reviews more
-        heavily than those of others
     - Add a restaurants model and a restaurant_wine model
       - Restaurants have many wines through restaurant_wine and wines have many
         restaurants through restaurant_wine
@@ -74,3 +69,8 @@
       - This feature is what necessitates having a responsive CSS layout – users
         will be accessing the app via mobile devices at restaurants when
         selecting wines from restaurant wine lists.
+        Wines are suggested for a user based on the reviews of users with similar
+          tastes
+    - This feature will require an alternate rating algorithm that determines
+      which other users have similar tastes and weights their reviews more
+      heavily than those of others
