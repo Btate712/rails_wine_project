@@ -1,4 +1,4 @@
-Rails Project Checklist of Requirements
+#Rails Project Checklist of Requirements
 
 - A summary of the application:
   - The application allows users write reviews for and to rate wines.  A logged
