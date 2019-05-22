@@ -1,0 +1,7 @@
+<h1>Welcome to Somm<h1>
+<%= form_tag(new_user_path, method: "GET") do %>
+  <%= submit_tag "Create New User" %><br />
+<% end %>
+<%= form_tag login_path, method: "GET" do %>
+  <%= submit_tag "Login Existing User" %><br />
+<% end %>
