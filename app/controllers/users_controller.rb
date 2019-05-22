@@ -18,7 +18,8 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params(:username, :password))
-    if @user.save?
+    if @user.save
+      session[:user_id] = @user.id
       redirect_to wines_path
     else
       render 'user/new'
