@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_005329) do
+ActiveRecord::Schema.define(version: 2019_05_22_021754) do
 
   create_table "reviews", force: :cascade do |t|
     t.integer "user_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_05_22_005329) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.string "google_token"
+    t.string "google_refresh_token"
   end
 
   create_table "varieties", force: :cascade do |t|

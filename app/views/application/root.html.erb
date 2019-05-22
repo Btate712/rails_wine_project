@@ -5,3 +5,6 @@
 <%= form_tag login_path, method: "GET" do %>
   <%= submit_tag "Login Existing User" %><br />
 <% end %>
+<%= form_tag '/auth/google_oauth2', method: "GET" do %>
+  <%= submit_tag "Login Via Google" %><br />
+<% end %>
