@@ -16,6 +16,9 @@
   - Wine
     - Has many reviews
     - Has many users through reviews
+    - Belongs to variety
+  - Variety
+    - Has many wines
 
 - How will you implement a user submittable attribute on the join table of the
   many to many relationship?
@@ -41,6 +44,9 @@
       value between 1 and 5 (inclusive)
   - Wine
     - Name – validates presence and uniqueness
+  - Variety
+    - Name - validates presence and uniqueness
+    - Color - validates presence
 
 - How will you implement an authentication system?
   - Authentication will be via username and bcrypt secure password OR Google
