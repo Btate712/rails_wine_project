@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    redirect_to '/'
+  end
+
   def googleAuth
     # Get access tokens from the google server
     access_token = request.env["omniauth.auth"]
@@ -23,8 +27,8 @@ class SessionsController < ApplicationController
     # Note: Refresh_token is only sent once during the first request
     refresh_token = access_token.credentials.refresh_token
     user.google_refresh_token = refresh_token if refresh_token.present?
-    if user.persisted?
-      user = User.find(user.id)
+    if User.exists?(username: user.username)
+      user = User.find_by(username: user.username)
     else
       user.save
     end

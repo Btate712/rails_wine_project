@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/', to: 'application#root'
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
   # Routes for Google authentication
   get 'auth/:provider/callback', to: 'sessions#googleAuth'

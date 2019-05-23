@@ -10,7 +10,7 @@ class User < ApplicationRecord
     # Creates a new user only if it doesn't exist
     where(username: auth.info.email).first_or_initialize do |user|
       user.username = auth.info.email.split("@").first
-      user.password = SecureRandom.hex
+      user.password ||= SecureRandom.hex
     end
   end
 end
