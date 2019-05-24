@@ -20,4 +20,11 @@ class ApplicationController < ActionController::Base
   def logged_in?
     @logged_in = !!current_user
   end
+
+  def require_login
+    unless logged_in?
+      flash[:error] = "Please log in to access the application"
+      redirect_to root_path
+    end
+  end
 end

@@ -1,4 +1,6 @@
 class WinesController < ApplicationController
+  before_action :require_login
+
   def index
     @wines = Wine.all
   end
@@ -9,6 +11,7 @@ class WinesController < ApplicationController
 
   def new
     @wine = Wine.new
+    @varieties = Variety.all
   end
 
   def edit
@@ -17,8 +20,8 @@ class WinesController < ApplicationController
 
   def create
     @wine = Wine.new(wine_params)
-    if @wine.save?
-      redirect_to wines_path
+    if @wine.save
+      redirect_to wine_path(@wine)
     else
       render 'wine/new'
     end
@@ -37,12 +40,12 @@ class WinesController < ApplicationController
   def destroy
     @user = Wine.find(params[:id])
     @user.destroy
-    redirect_to wines_path 
+    redirect_to wines_path
   end
 
   private
 
-  def user_params(* args)
+  def wine_params
     params.require(:wine).permit(:name, :variety_id)
   end
 end

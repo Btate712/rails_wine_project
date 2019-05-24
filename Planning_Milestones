@@ -2,7 +2,7 @@
 1. Build out and test models with relationships and validations - Tuesday
   5/21/19 - done
 2. Build out and test user signup / signin functions (including OmniAuth through
-  Google) - Wednesday 5/22/19
+  Google) - Wednesday 5/22/19 - done
 3. Build out and test new and edit review functions (includes nested new wine
   function) - Thursday 5/23/19
 4. Build out and test show and index pages - Friday 5/24/19

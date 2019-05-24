@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   resources :reviews
   resources :users
 
-  get '/', to: 'application#root'
+  root 'application#root'
+  
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'

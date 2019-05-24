@@ -14,7 +14,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    redirect_to '/'
+    session.clear
+    redirect_to root_path
   end
 
   def googleAuth
