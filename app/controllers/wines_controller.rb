@@ -19,6 +19,7 @@ class WinesController < ApplicationController
   end
 
   def create
+    raise params.inspect
     @wine = Wine.new(wine_params)
     if @wine.save
       redirect_to wine_path(@wine)
