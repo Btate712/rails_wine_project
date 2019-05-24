@@ -1,2 +1,4 @@
-<%= "#{@wine.name}, #{@wine.variety.name}" %><br />
-<%= link_to "Back to Wine List", wines_path %>
+<%= "#{@wine.name}, #{@wine.variety.name}" %>
+<%= link_to "Edit", edit_wine_path(@wine) %>
+<%= link_to "Delete", wine_path(@wine), method: "DELETE" %><br />
+<%= link_to "Back to Wine List", wines_path %><br />

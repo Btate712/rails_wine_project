@@ -16,22 +16,23 @@ class WinesController < ApplicationController
 
   def edit
     @wine = Wine.find(params[:id])
+    @varieties = Variety.all
   end
 
   def create
-    raise params.inspect
     @wine = Wine.new(wine_params)
     if @wine.save
       redirect_to wine_path(@wine)
     else
-      render 'wine/new'
+      @varieties = Variety.all
+      render 'wines/new'
     end
   end
 
   def update
     @wine = Wine.find(params[:id])
     @wine.update(wine_params)
-    if @wine.save?
+    if @wine.save
       redirect_to wine_path(@wine)
     else
       render 'wine/edit'
