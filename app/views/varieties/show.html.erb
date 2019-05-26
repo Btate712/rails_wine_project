@@ -1,0 +1,8 @@
+<h1><%= @variety.name %></h1>
+<p>Color: <%= @variety.color %></p>
+<p>Wines:</p>
+<ul>
+  <% @wines.each do |wine| %>
+    <li><%= link_to wine.name, wine_path(wine) %></li>
+  <% end %>
+</ul> 

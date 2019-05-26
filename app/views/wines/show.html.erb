@@ -1,4 +1,5 @@
-<%= "#{@wine.name}, #{@wine.variety.name}" %>
-<%= link_to "Edit", edit_wine_path(@wine) %>
-<%= link_to "Delete", wine_path(@wine), method: "DELETE" %><br />
+<h1><%= @wine.name %></h1>
+<p>Variety: <%= link_to @wine.variety.name, variety_path(@wine.variety) %></p>
+<%= link_to "Edit", edit_wine_path(@wine), class:"btn" %>
+<%= link_to "Delete", wine_path(@wine), method: "DELETE", class:"btn" %><br />
 <%= link_to "Back to Wine List", wines_path %><br />

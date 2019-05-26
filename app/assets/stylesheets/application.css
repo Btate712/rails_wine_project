@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  background-image: url("david-kohler-1068987-unsplash.jpg");
+}
+
+.main {
+  font-family: Papyrus,fantasy;
+  padding: 10px;
+  width: 450px;
+  height: 500px;
+  background-color: #4d0000;
+  margin-left: auto;
+  margin-right: auto;
+  color: #a3a3c2;
+}
+
+h1 {
+  font-size: 30px;
+  text-decoration: underline;
+
+}
+
+a {
+  color: #a3a3c2;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ffffff;
+}
+
+.btn {
+  border: 1px solid #a3a3c2;
+  border-radius: 5px;
+}

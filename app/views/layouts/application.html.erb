@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RailsWineProject</title>
+    <title>Somm</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,13 +10,15 @@
   </head>
 
   <body>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
-    <%= yield %>
-    <br />
-    <% if @logged_in %>
-      <p><%= link_to "Log Out", logout_path %></p>
-    <% end %>
+    <div class="main">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+      <br />
+      <% if @logged_in %>
+        <%= link_to "Log Out", logout_path, class: "btn" %>
+      <% end %>
+    </div>
   </body>
 </html>

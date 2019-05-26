@@ -1,4 +1,4 @@
-<% if !@wine.valid? %>
+<% if !@wine.errors.empty? %>
   <% @wine.errors.full_messages.each do |error_message| %>
     <p class="error"><%= error_message %></p>
   <% end %>
