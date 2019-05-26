@@ -47,6 +47,6 @@ class VarietiesController < ApplicationController
   private
 
   def variety_params
-    params.require(:variety).permit(:name)
+    params.require(:variety).permit(:name, :color)
   end
 end

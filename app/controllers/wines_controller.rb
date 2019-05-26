@@ -12,6 +12,7 @@ class WinesController < ApplicationController
   def new
     @wine = Wine.new
     @varieties = Variety.all
+    @wine.build_variety
   end
 
   def edit
@@ -48,6 +49,6 @@ class WinesController < ApplicationController
   private
 
   def wine_params
-    params.require(:wine).permit(:name, :variety_id)
+    params.require(:wine).permit(:name, :variety_id, variety_attributes: [:id, :name, :color])
   end
 end
