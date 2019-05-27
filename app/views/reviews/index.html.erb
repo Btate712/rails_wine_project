@@ -1,0 +1,4 @@
+<h1>Reviews:</h1>
+<% @reviews.all.each do |review| %>
+  <p><%= link_to "#{review.wine.name} by #{review.user.username}", review_path(review) %></p>
+<% end %>

@@ -1,0 +1,23 @@
+<%= form_for @review do |f| %>
+  <%= hidden_field_tag "review[user_id]", current_user.id %>
+
+  <%= f.label :wine %>
+  <%= f.collection_select(:wine_id, @wines, :id, :name, include_blank: true) %><br />
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %><br />
+
+  <%= f.label :heaviness %>
+  <%= f.text_field :heaviness %><br />
+
+  <%= f.label :fruitiness %>
+  <%= f.text_field :fruitiness %><br />
+
+  <%= f.label :acidity %>
+  <%= f.text_field :acidity %><br />
+
+  <%= f.label :comments %><br />
+  <%= f.text_area :comments %><br />
+
+  <%= f.submit %>
+<% end %>
