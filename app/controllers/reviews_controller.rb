@@ -21,6 +21,9 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @wines = Wine.all
+    @wine = @review.build_wine
+    @variety = @wine.build_variety
+    @varieties = Variety.all
     if params[:wine_id] && Wine.exists?(params[:wine_id])
       @review.wine = Wine.find(params[:wine_id])
       @disable_wine_select = true
@@ -63,6 +66,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:user_id, :wine_id, :rating, :heaviness,
-      :fruitiness, :acidity, :comments)
+      :fruitiness, :acidity, :comments, wine_attributes:
+        [:name, :variety_id, variety_attributes:
+          [:name, :color]
+        ]
+      )
   end
 end

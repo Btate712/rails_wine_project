@@ -2,7 +2,7 @@ class WinesController < ApplicationController
   before_action :require_login
 
   def index
-    @wines = Wine.all
+    @wines = Wine.all.sort_by{ |wine| wine.average_rating }.reverse
   end
 
   def show
