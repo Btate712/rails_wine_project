@@ -1,7 +1,9 @@
 <h1><%= @wine.name %></h1>
 <p>Variety: <%= link_to @wine.variety.name, variety_path(@wine.variety) %></p>
-<p>Average Rating: <%= @wine.average_rating %> stars</p>
-<%= link_to "Reviews", wine_reviews_path(@wine), class: "btn" %>
+<p>Average Rating: <%= @wine.average_rating %></p>
+<% if @wine.reviews.count != 0 %>
+  <%= link_to "Reviews", wine_reviews_path(@wine), class: "btn" %>
+<% end %>
 <%= link_to "Edit Wine", edit_wine_path(@wine), class:"btn" %>
 <%= link_to "Delete Wine", wine_path(@wine), method: "DELETE", class:"btn" %><br />
 <%= link_to "Back to Wine List", wines_path, class: "btn" %><br />

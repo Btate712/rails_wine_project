@@ -15,6 +15,10 @@ class Wine < ApplicationRecord
   end
 
   def average_rating
-    (self.reviews.sum { |review| review.rating }.to_f / self.reviews.count).round(1)
+    if self.reviews.count > 0
+      (self.reviews.sum { |review| review.rating }.to_f / self.reviews.count).round(1).to_s + " stars"
+    else
+      "No Reviews"
+    end
   end
 end

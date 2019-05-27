@@ -2,7 +2,7 @@
 <div class="main_content">
   <ul>
     <% @wines.each do |wine| %>
-      <li><%= link_to "#{wine.name} - #{wine.average_rating} stars", wine_path(wine) %></li>
+      <li><%= link_to "#{wine.name} - #{wine.average_rating}", wine_path(wine) %></li>
     <% end %>
   </ul>
 </div>
