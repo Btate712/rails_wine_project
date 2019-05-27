@@ -5,7 +5,10 @@ class Wine < ApplicationRecord
   has_many :reviews
   has_many :wines, through: :reviews
 
-  accepts_nested_attributes_for :variety
+  def variety_attributes=(attributes)
+    variety = Variety.find_or_create_by(attributes)
+    self.variety = variety if variety.valid?
+  end
 
   def self.by_variety(v)
     where(variety: v)

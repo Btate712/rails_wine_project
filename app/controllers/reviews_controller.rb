@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @varieties = Variety.all
+    @wines = Wine.all
   end
 
   def edit

@@ -6,14 +6,19 @@
 <%= form_for @wine do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %> <br />
-  <%= f.label "Variety:" %>
+
+  <%= f.label :variety_id, "Variety:" %>
   <%= f.collection_select(:variety_id, @varieties, :id, :name, include_blank: true) %> <br />
+
+  <h3> Or add a new variety: </h3>
+
   <%= f.fields_for :variety do |v| %>
-    <%= v.label "New Variety" %>
     <%= v.label :name %>
     <%= v.text_field :name %><br />
+
     <%= v.label "New Variety Color" %>
     <%= v.text_field :color %><br />
   <% end %>
+
   <%= f.submit %>
 <% end %>
