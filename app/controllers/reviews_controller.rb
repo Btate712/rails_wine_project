@@ -3,13 +3,13 @@ class ReviewsController < ApplicationController
 
   def index
     if params[:user_id] && User.exists?(params[:user_id])
-      @by = "user"
+      @list_by = "user"
       @reviews = User.find(params[:user_id]).reviews
     elsif params[:wine_id] && Wine.exists?(params[:wine_id])
-      @by = "wine"
+      @list_by = "wine"
       @reviews = Wine.find(params[:wine_id]).reviews
     else
-      @by = nil
+      @list_by = nil
       @reviews = Review.all
     end
   end
@@ -21,6 +21,12 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @wines = Wine.all
+    if params[:wine_id] && Wine.exists?(params[:wine_id])
+      @review.wine = Wine.find(params[:wine_id])
+      @disable_wine_select = true
+    else
+      @disable_wine_select = false
+    end
   end
 
   def edit

@@ -1,8 +1,13 @@
 <%= form_for @review do |f| %>
   <%= hidden_field_tag "review[user_id]", current_user.id %>
 
-  <%= f.label :wine %>
-  <%= f.collection_select(:wine_id, @wines, :id, :name, include_blank: true) %><br />
+  <% if @disable_wine_select == false %>
+    <%= f.label :wine %>
+    <%= f.collection_select(:wine_id, @wines, :id, :name, include_blank: true) %><br />
+  <% else %>
+    <%= f.label :wine, "Wine: #{@review.wine.name}" %> <br />
+    <%= hidden_field_tag "review[wine_id]", @review.wine.id %>
+  <% end %>
 
   <%= f.label :rating %>
   <%= f.text_field :rating %><br />

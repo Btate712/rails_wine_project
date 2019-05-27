@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'sessions/login'
   resources :varieties
   resources :wines do
-    resources :reviews, only: [:index, :show]
+    resources :reviews, only: [:index, :show, :new]
   end
   resources :reviews
   resources :users do
