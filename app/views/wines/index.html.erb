@@ -20,4 +20,8 @@
   <%= hidden_field_tag("wine_color", "pink") %>
   <%= submit_tag("Pinks") %>
 <% end %>
+<%= form_tag wines_path, method: "GET" do %>
+  <%= hidden_field_tag("wine_color", "all") %>
+  <%= submit_tag("All") %>
+<% end %>
 <%= link_to "Write a Review", new_review_path, class: "btn" %><br />

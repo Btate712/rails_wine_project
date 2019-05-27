@@ -10,7 +10,9 @@ class WinesController < ApplicationController
         @wines = Wine.white
       when 'pink'
         @wines = Wine.pink
-      end 
+      when 'all'
+        @wines = Wine.all
+      end
     else
       @wines = Wine.all
     end
