@@ -2,7 +2,19 @@ class WinesController < ApplicationController
   before_action :require_login
 
   def index
-    @wines = Wine.all.sort_by{ |wine| wine.average_rating }.reverse
+    if params[:wine_color]
+      case params[:wine_color]
+      when 'red'
+        @wines = Wine.red
+      when 'white'
+        @wines = Wine.white
+      when 'pink'
+        @wines = Wine.pink
+      end 
+    else
+      @wines = Wine.all
+    end
+    @wines = @wines.sort_by{ |wine| wine.average_rating }.reverse
   end
 
   def show
