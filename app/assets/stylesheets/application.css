@@ -18,15 +18,20 @@ body {
   background-image: url("david-kohler-1068987-unsplash.jpg");
 }
 
-.main {
-  font-family: Papyrus,fantasy;
-  padding: 10px;
+.main_container {
   width: 350px;
   height: 500px;
+  padding: 10px;
   background-color: #4d0000;
   margin-left: auto;
   margin-right: auto;
+}
+
+.main_content {
+  height: 480px;
+  font-family: Papyrus,fantasy;
   color: #a3a3c2;
+  overflow: auto;
 }
 
 h1 {
