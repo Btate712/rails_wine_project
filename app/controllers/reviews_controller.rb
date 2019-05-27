@@ -20,7 +20,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    if @review.save
+    if @review.save!
       redirect_to review_path(@review)
     else
       render 'reviews/new'
@@ -46,6 +46,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:user_id, :wine_id, :comments)
+    params.require(:review).permit(:user_id, :wine_id, :rating, :heaviness,
+      :fruitiness, :acidity, :comments)
   end
 end

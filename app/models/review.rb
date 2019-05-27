@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  validates :user, presence: true, uniqueness: false
+  validates :user_id, presence: true
   validates :wine, presence: true
   validates :rating, presence: true, numericality:
     { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
