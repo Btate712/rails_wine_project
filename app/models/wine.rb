@@ -13,4 +13,8 @@ class Wine < ApplicationRecord
   def self.by_variety(v)
     where(variety: v)
   end
+
+  def average_rating
+    (self.reviews.sum { |review| review.rating }.to_f / self.reviews.count).round(1)
+  end
 end

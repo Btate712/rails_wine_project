@@ -7,7 +7,7 @@
 <p>Acidity: <%= @review.acidity %></p>
 <p>Comments: </p>
 <p>
-  <% if @review.comments != "" %>
+  <% if @review.comments && @review.comments != "" %>
     <%= @review.comments %>
   <% else %>
     None

@@ -1,4 +1,19 @@
-<h1>Reviews:</h1>
+<h1>
+  Reviews
+  <% if @by == "user" %>
+    by <%= @reviews.first.user.username %>
+  <% elsif @by == "wine" %>
+    for <%= @reviews.first.wine.name %>
+  <% end %>:
+</h1>
 <% @reviews.all.each do |review| %>
-  <p><%= link_to "#{review.wine.name} by #{review.user.username}", review_path(review) %></p>
+  <p>
+    <% if @by == "user" %>
+      <%= link_to "#{review.wine.name} - #{review.rating} stars", review_path(review) %>
+    <% elsif @by == "wine" %>
+      <%= link_to "By #{review.user.username} - #{review.rating} stars", review_path(review) %>
+    <% else %>
+      <%= link_to "#{review.wine.name} by #{review.user.username}", review_path(review) %>
+    <% end %>
+  </p>
 <% end %>

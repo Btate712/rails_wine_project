@@ -2,7 +2,16 @@ class ReviewsController < ApplicationController
   before_action :require_login
 
   def index
-    @reviews = Review.all
+    if params[:user_id] && User.exists?(params[:user_id])
+      @by = "user"
+      @reviews = User.find(params[:user_id]).reviews
+    elsif params[:wine_id] && Wine.exists?(params[:wine_id])
+      @by = "wine"
+      @reviews = Wine.find(params[:wine_id]).reviews
+    else
+      @by = nil
+      @reviews = Review.all
+    end
   end
 
   def show

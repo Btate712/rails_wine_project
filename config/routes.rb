@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
   get 'sessions/login'
   resources :varieties
-  resources :wines
+  resources :wines do
+    resources :reviews, only: [:index, :show]
+  end
   resources :reviews
-  resources :users
+  resources :users do
+    resources :reviews, only: [:index, :show]
+  end
 
   root 'application#root'
-  
+
   get '/login', to: 'sessions#login'
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
