@@ -1,9 +1,10 @@
 <h1>Wine List:</h1>
-<ul>
-<% @wines.each do |wine| %>
-  <li><%= link_to "#{wine.name} - #{wine.average_rating} stars", wine_path(wine) %></li>
-<% end %>
-</ul>
-<%= form_tag new_wine_path, method: "GET" do %>
-  <%= submit_tag "New Wine" %>
-<% end %>
+<div class="main_content">
+  <ul>
+    <% @wines.each do |wine| %>
+      <li><%= link_to "#{wine.name} - #{wine.average_rating} stars", wine_path(wine) %></li>
+    <% end %>
+  </ul>
+</div>
+<br />
+<%= link_to "New Wine", new_wine_path, class: "btn" %><br />

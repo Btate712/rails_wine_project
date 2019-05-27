@@ -1,6 +1,8 @@
 <h1>Varieties:</h1>
-<ul>
-<% @varieties.each do |variety| %>
-  <li><%= link_to variety.name, variety_path(variety) %></li>
-<% end %>
-</ul>
+<div class="main_content">
+  <ul>
+    <% @varieties.each do |variety| %>
+      <li><%= link_to variety.name, variety_path(variety) %></li>
+    <% end %>
+  </ul>
+</div>

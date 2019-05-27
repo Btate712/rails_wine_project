@@ -6,17 +6,19 @@
     for <%= @reviews.first.wine.name %>
   <% end %>:
 </h1>
-<% if @list_by == "wine" %>
-  <%= link_to "Create New Review", new_wine_review_path(@reviews.first.wine) %>
-<% end %>
-<% @reviews.all.each do |review| %>
-  <p>
-    <% if @list_by == "user" %>
-      <%= link_to "#{review.wine.name} - #{review.rating} stars", review_path(review) %>
-    <% elsif @list_by == "wine" %>
-      <%= link_to "By #{review.user.username} - #{review.rating} stars", review_path(review) %>
-    <% else %>
-      <%= link_to "#{review.wine.name} by #{review.user.username}", review_path(review) %>
-    <% end %>
-  </p>
-<% end %>
+  <% if @list_by == "wine" %>
+    <%= link_to "Create New Review", new_wine_review_path(@reviews.first.wine) %>
+  <% end %>
+<div class="main_content">
+  <% @reviews.all.each do |review| %>
+    <p>
+      <% if @list_by == "user" %>
+        <%= link_to "#{review.wine.name} - #{review.rating} stars", review_path(review) %>
+      <% elsif @list_by == "wine" %>
+        <%= link_to "By #{review.user.username} - #{review.rating} stars", review_path(review) %>
+      <% else %>
+        <%= link_to "#{review.wine.name} by #{review.user.username}", review_path(review) %>
+      <% end %>
+    </p>
+  <% end %>
+</div>

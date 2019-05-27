@@ -2,14 +2,18 @@
 <p><%= link_to @review.wine.name, wine_path(@review.wine) %></p>
 <p>by user: <%= @review.user.username %></p>
 <p>Overall Rating: <%= @review.rating %></p>
-<p>Heaviness: <%= @review.heaviness %></p>
-<p>Fruitiness: <%= @review.fruitiness %></p>
-<p>Acidity: <%= @review.acidity %></p>
+<ul>
+  <li>Heaviness: <%= @review.heaviness %></li>
+  <li>Fruitiness: <%= @review.fruitiness %></li>
+  <li>Acidity: <%= @review.acidity %></li>
+</ul>
 <p>Comments: </p>
-<p>
-  <% if @review.comments && @review.comments != "" %>
-    <%= @review.comments %>
-  <% else %>
-    None
-  <% end %>
-</p>
+<div class="small_content">
+  <p>
+    <% if @review.comments && @review.comments != "" %>
+      <%= @review.comments %>
+    <% else %>
+      None
+    <% end %>
+  </p>
+</div>
