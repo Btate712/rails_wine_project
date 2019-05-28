@@ -27,4 +27,13 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def logout
+    session.clear
+    redirect_to root_path
+  end
+
+  def admin_only
+    redirect_to root_path if !current_user.admin
+  end
 end

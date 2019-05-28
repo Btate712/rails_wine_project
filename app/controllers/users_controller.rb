@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    admin_only
     @user = User.find(params[:id])
   end
 
@@ -27,6 +28,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    admin_only
     @user = User.find(params[:id])
     @user.update(user_params(:username, :password, :admin))
     if @user.save?
@@ -37,6 +39,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    admin_only
     @user = User.find(params[:id])
     @user.destroy
     redirect_to users_path

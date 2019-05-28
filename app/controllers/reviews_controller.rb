@@ -34,6 +34,7 @@ class ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
+    redirect_to wines_path if @review.user != current_user
     @wines = Wine.all
   end
 
@@ -48,6 +49,7 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
+    redirect_to wines_path if current_user != @review.user
     @review.update(review_params)
     if @review.save
       redirect_to review_path(@review)
@@ -58,6 +60,7 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
+    redirect_to wines_path if @review.user != current_user
     @review.destroy
     redirect_to reviews_path
   end

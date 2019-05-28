@@ -30,7 +30,7 @@
   - A scope method is a class method for retrieving objects from the database
     using frequently used search parameters.  I plan on implementing filter
     options on the wine/index page to allow the user to search for wines based
-    on parameters such as retail_price, color, variety, and overall rating
+    on parameters such as color and variety
 
 - What validations will you have for your models?
   - Users

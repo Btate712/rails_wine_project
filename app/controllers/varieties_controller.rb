@@ -15,6 +15,7 @@ class VarietiesController < ApplicationController
   end
 
   def edit
+    admin_only
     @variety = Variety.find(params[:id])
   end
 
@@ -29,6 +30,7 @@ class VarietiesController < ApplicationController
   end
 
   def update
+    admin_only
     @variety = Variety.find(params[:id])
     @variety.update(variety_params)
     if @variety.save
@@ -39,6 +41,7 @@ class VarietiesController < ApplicationController
   end
 
   def destroy
+    admin_only
     @variety = Variety.find(params[:id])
     @variety.destroy
     redirect_to varieties_path
