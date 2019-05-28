@@ -84,3 +84,7 @@ a:hover {
   right: 15px;
   bottom: 15px;
 }
+
+.inline {
+  display: inline-block;
+}

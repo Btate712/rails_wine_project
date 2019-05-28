@@ -8,20 +8,29 @@
 </div>
 <br />
 <%= link_to "New Wine", new_wine_path, class: "btn" %><br />
-<%= form_tag wines_path, method: "GET" do %>
-  <%= hidden_field_tag("wine_color", "red") %>
-  <%= submit_tag("Reds") %>
-<% end %>
-<%= form_tag wines_path, method: "GET" do %>
-  <%= hidden_field_tag("wine_color", "white") %>
-  <%= submit_tag("Whites") %>
-<% end %>
-<%= form_tag wines_path, method: "GET" do %>
-  <%= hidden_field_tag("wine_color", "pink") %>
-  <%= submit_tag("Pinks") %>
-<% end %>
-<%= form_tag wines_path, method: "GET" do %>
-  <%= hidden_field_tag("wine_color", "all") %>
-  <%= submit_tag("All") %>
-<% end %>
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "red") %>
+    <%= submit_tag("Reds") %>
+  <% end %>
+</div>
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "white") %>
+    <%= submit_tag("Whites") %>
+  <% end %>
+</div>
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "pink") %>
+    <%= submit_tag("Pinks") %>
+  <% end %>
+</div>
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "all") %>
+    <%= submit_tag("All") %>
+  <% end %>
+</div>
+<br />
 <%= link_to "Write a Review", new_review_path, class: "btn" %><br />
