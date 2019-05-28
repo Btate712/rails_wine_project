@@ -17,7 +17,7 @@
       <%= yield %>
       <br />
       <% if @logged_in %>
-        <%= link_to "Log Out", logout_path, class: "btn" %>
+        <div class="btn"><%= link_to "Log Out", logout_path %></div>
       <% end %>
     </div>
     <div class="image_credit">Photo by

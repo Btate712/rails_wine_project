@@ -1,4 +1,33 @@
 <h1>Wine List:</h1>
+
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "red") %>
+    <%= submit_tag("Reds") %>
+  <% end %>
+</div>
+
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "white") %>
+    <%= submit_tag("Whites") %>
+  <% end %>
+</div>
+
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "pink") %>
+    <%= submit_tag("Pinks") %>
+  <% end %>
+</div>
+
+<div class="inline">
+  <%= form_tag wines_path, method: "GET" do %>
+    <%= hidden_field_tag("wine_color", "all") %>
+    <%= submit_tag("All") %>
+  <% end %>
+</div>
+
 <div class="main_content">
   <ul>
     <% @wines.each do |wine| %>
@@ -7,30 +36,5 @@
   </ul>
 </div>
 <br />
-<%= link_to "New Wine", new_wine_path, class: "btn" %><br />
-<div class="inline">
-  <%= form_tag wines_path, method: "GET" do %>
-    <%= hidden_field_tag("wine_color", "red") %>
-    <%= submit_tag("Reds") %>
-  <% end %>
-</div>
-<div class="inline">
-  <%= form_tag wines_path, method: "GET" do %>
-    <%= hidden_field_tag("wine_color", "white") %>
-    <%= submit_tag("Whites") %>
-  <% end %>
-</div>
-<div class="inline">
-  <%= form_tag wines_path, method: "GET" do %>
-    <%= hidden_field_tag("wine_color", "pink") %>
-    <%= submit_tag("Pinks") %>
-  <% end %>
-</div>
-<div class="inline">
-  <%= form_tag wines_path, method: "GET" do %>
-    <%= hidden_field_tag("wine_color", "all") %>
-    <%= submit_tag("All") %>
-  <% end %>
-</div>
-<br />
+<%= link_to "New Wine", new_wine_path, class: "btn" %>
 <%= link_to "Write a Review", new_review_path, class: "btn" %><br />

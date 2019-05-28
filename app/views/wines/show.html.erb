@@ -2,10 +2,10 @@
 <p>Variety: <%= link_to @wine.variety.name, variety_path(@wine.variety) %></p>
 <p>Average Rating: <%= @wine.average_rating %></p>
 <% if @wine.reviews.count == 0 %>
-  <%= link_to "Create Review", new_wine_review_path(@wine), class: "btn" %>
+  <div class="btn"><%= link_to "Create Review", new_wine_review_path(@wine) %></div>
 <% else %>
-  <%= link_to "Reviews", wine_reviews_path(@wine), class: "btn" %>
+  <div class="btn"><%= link_to "Reviews", wine_reviews_path(@wine) %></div>
 <% end %>
-<%= link_to "Edit Wine", edit_wine_path(@wine), class:"btn" %>
-<%= link_to "Delete Wine", wine_path(@wine), method: "DELETE", class:"btn" %><br />
-<%= link_to "Back to Wine List", wines_path, class: "btn" %><br />
+<div class="btn"><%= link_to "Edit Wine", edit_wine_path(@wine) %></div>
+<div class="btn"><%= link_to "Delete Wine", wine_path(@wine), method: "DELETE" %></div><br />
+<div class="btn"><%= link_to "Back to Wine List", wines_path %></div><br />
