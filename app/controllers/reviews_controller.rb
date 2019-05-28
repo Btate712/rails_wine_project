@@ -36,6 +36,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     redirect_to wines_path if @review.user != current_user
     @wines = Wine.all
+    @varieties = Variety.all
   end
 
   def create
@@ -60,9 +61,8 @@ class ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    redirect_to wines_path if @review.user != current_user
-    @review.destroy
-    redirect_to reviews_path
+    @review.destroy if @review.user != current_user
+    redirect_to wines_path
   end
 
   private

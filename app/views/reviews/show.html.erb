@@ -17,3 +17,12 @@
     <% end %>
   </p>
 </div>
+<% if current_user == @review.user || current_user.admin%>
+  <div class="btn">
+    <%= link_to "Edit Review", edit_review_path(@review) %>
+  </div>
+  <div class="btn">
+    <%= link_to "Delete Review", review_path(@review), method: "DELETE" %>
+  </div>
+<% end %>
+<div class="btn"><%= link_to "Back to Wine List", wines_path %></div><br />

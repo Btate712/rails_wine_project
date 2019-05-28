@@ -8,3 +8,12 @@
     <% end %>
   </ul>
 </div>
+<% if current_user.admin %>
+  <div class="btn">
+    <%= link_to "Edit Variety", edit_variety_path(@variety) %>
+  </div>
+  <div class="btn">
+    <%= link_to "Delete Variety", variety_path(@variety), method: "PATCH" %>
+  </div>
+<% end %>
+<div class="btn"><%= link_to "Back to Wine List", wines_path %></div><br />

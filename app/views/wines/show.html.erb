@@ -6,6 +6,8 @@
 <% else %>
   <div class="btn"><%= link_to "Reviews", wine_reviews_path(@wine) %></div>
 <% end %>
-<div class="btn"><%= link_to "Edit Wine", edit_wine_path(@wine) %></div>
-<div class="btn"><%= link_to "Delete Wine", wine_path(@wine), method: "DELETE" %></div><br />
+<% if current_user.admin %>
+  <div class="btn"><%= link_to "Edit Wine", edit_wine_path(@wine) %></div><br />
+  <div class="btn"><%= link_to "Delete Wine", wine_path(@wine), method: "DELETE" %></div><br />
+<% end %>
 <div class="btn"><%= link_to "Back to Wine List", wines_path %></div><br />
