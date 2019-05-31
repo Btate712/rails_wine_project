@@ -78,5 +78,3 @@ pickle-email-*.html
 *.old
 *.jar
 xerial*.*
-
-/config/initializers/omniauth.rb
