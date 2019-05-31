@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get this app running:
+* Clone the repository
+* Run 'bundle install'
+* Run 'rake db:migrate'
+* If you'd like to populate the database with dummy data for testing and development, run 'rake db:seed'
+* Set up the app for OmniAuth on the Google developer site
+* Store the GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET as environment variables using the 'export' command in bash
+* Start up the rails server with a 'rails s' command
