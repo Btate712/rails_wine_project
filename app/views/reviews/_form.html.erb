@@ -1,55 +1,55 @@
+<%= form_for @review do |f| %>
+  <%= hidden_field_tag "review[user_id]", current_user.id %>
 
-  <%= form_for @review do |f| %>
-    <%= hidden_field_tag "review[user_id]", current_user.id %>
+  <% if @disable_wine_select == true %>
+    <%= render "errors" %>
+    <%= f.label :wine, "Wine: #{@review.wine.name}" %> <br />
+    <%= hidden_field_tag "review[wine_id]", @review.wine.id %>
 
-    <% if @disable_wine_select == true %>
+  <% else %>
+    <div class="big_content">
+      <%= render "errors" %>
+      <%= f.label :wine_id %>
+      <%= f.collection_select(:wine_id, @wines, :id, :name, include_blank: true) %><br />
 
-      <%= f.label :wine, "Wine: #{@review.wine.name}" %> <br />
-      <%= hidden_field_tag "review[wine_id]", @review.wine.id %>
+      <p>Or add a new wine:</p>
 
-    <% else %>
-      <div class="big_content">
-        <%= f.label :wine_id %>
-        <%= f.collection_select(:wine_id, @wines, :id, :name, include_blank: true) %><br />
+      <%= f.fields_for :wine do |w| %>
+        <%= w.label :name %>
+        <%= w.text_field :name %> <br />
 
-        <p>Or add a new wine:</p>
+        <%= w.label :variety_id, "Variety:" %>
+        <%= w.collection_select(:variety_id, @varieties, :id, :name, include_blank: true) %> <br />
 
-        <%= f.fields_for :wine do |w| %>
-          <%= w.label :name %>
-          <%= w.text_field :name %> <br />
+        <p> Or add a new variety: </p>
 
-          <%= w.label :variety_id, "Variety:" %>
-          <%= w.collection_select(:variety_id, @varieties, :id, :name, include_blank: true) %> <br />
+        <%= w.fields_for :variety do |v| %>
+          <%= v.label :name %>
+          <%= v.text_field :name %><br />
 
-          <p> Or add a new variety: </p>
-
-          <%= w.fields_for :variety do |v| %>
-            <%= v.label :name %>
-            <%= v.text_field :name %><br />
-
-            <%= v.label "New Variety Color" %>
-            <%= v.text_field :color %><br />
-          <% end %>
+          <%= v.label "New Variety Color" %>
+          <%= v.text_field :color %><br />
         <% end %>
-
-
       <% end %>
 
-      <%= f.label :rating %>
-      <%= f.text_field :rating %><br />
 
-      <%= f.label :heaviness %>
-      <%= f.text_field :heaviness %><br />
-
-      <%= f.label :fruitiness %>
-      <%= f.text_field :fruitiness %><br />
-
-      <%= f.label :acidity %>
-      <%= f.text_field :acidity %><br />
-
-      <%= f.label :comments %><br />
-      <%= f.text_area :comments %><br />
-
-      <%= f.submit %>
     <% end %>
-  </div>
+
+    <%= f.label :rating %>
+    <%= f.text_field :rating %><br />
+
+    <%= f.label :heaviness %>
+    <%= f.text_field :heaviness %><br />
+
+    <%= f.label :fruitiness %>
+    <%= f.text_field :fruitiness %><br />
+
+    <%= f.label :acidity %>
+    <%= f.text_field :acidity %><br />
+
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %><br />
+
+    <%= f.submit %>
+  <% end %>
+</div>

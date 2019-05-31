@@ -1,3 +1,8 @@
+<% if !@user.errors.empty? %>
+  <% @user.errors.full_messages.each do |error_message| %>
+    <p class="error"><%= error_message %></p>
+  <% end %>
+<% end %>
 <%= form_for @user do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %><br />

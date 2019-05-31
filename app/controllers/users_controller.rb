@@ -23,7 +23,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to wines_path
     else
-      render 'user/new'
+      render new_user_path
     end
   end
 
