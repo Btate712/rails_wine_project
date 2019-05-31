@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   def destroy
     admin_only
     @user = User.find(params[:id])
+    @user.reviews.each { |review| review.destroy }
     @user.destroy
     redirect_to users_path
   end

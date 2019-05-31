@@ -55,7 +55,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to review_path(@review)
     else
-      render 'review/edit'
+      render edit_review_path
     end
   end
 

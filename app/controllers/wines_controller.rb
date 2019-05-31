@@ -59,6 +59,7 @@ class WinesController < ApplicationController
   def destroy
     admin_only
     @wine = Wine.find(params[:id])
+    @wine.reviews.each { |review| review.destroy }
     @wine.destroy
     redirect_to wines_path
   end

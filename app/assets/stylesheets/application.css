@@ -32,7 +32,7 @@ body {
   background-color: #650000;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
   border-radius: 7px;
 }
 
