@@ -1,8 +1,8 @@
 <h1>
   Reviews
-  <% if @list_by == "user" %>
+  <% if @list_by == "user" && !@reviews.empty? %>
     by <%= @reviews.first.user.username %>
-  <% elsif @list_by == "wine" %>
+  <% elsif @list_by == "wine" && !@reviews.empty? %>
     for <%= @reviews.first.wine.name %>
   <% end %>:
 </h1>
