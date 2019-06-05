@@ -5,6 +5,13 @@ class Review < ApplicationRecord
     { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
   validates :heaviness, :fruitiness, :acidity, numericality:
     { greater_than_or_equal_to: 1, less_than_or_equal_to: 5, allow_nil: true }
+  validate :one_review_per_wine_per_user
+
+  def one_review_per_wine_per_user
+    if Review.all.any? { |review| review.user_id == self.user_id && review.wine == self.wine }
+      errors.add(:wine, "can only be reviewed once by a user")
+    end
+  end
 
   def wine_attributes=(attributes)
     variety = Variety.find_or_create_by(attributes[:variety_attributes])
