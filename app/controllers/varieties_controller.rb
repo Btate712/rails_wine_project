@@ -6,8 +6,13 @@ class VarietiesController < ApplicationController
   end
 
   def show
-    @variety = Variety.find(params[:id])
-    @wines = Wine.by_variety(@variety)
+    if params[:id] == "red" || params[:id] == "white" || params[:id] == "pink"
+      @varieties = Variety.send(params[:id])
+      render 'varieties/index'
+    else
+      @variety = Variety.find(params[:id])
+      @wines = Wine.by_variety(@variety)
+    end
   end
 
   def new
