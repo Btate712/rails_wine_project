@@ -5,16 +5,17 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    if @user.authenticate(params[:user][:password])
+
+    if @user && @user.authenticate(params[:user][:password])
       log_in(@user)
       redirect_to wines_path
     else
-      render '/sessions/login'
+      redirect_to '/sessions/login'
     end
   end
 
   def destroy
-    logout 
+    logout
   end
 
   def googleAuth

@@ -1,5 +1,6 @@
 class VarietiesController < ApplicationController
   before_action :require_login
+  before_action :admin_only, only: [:edit, :update, :destroy]
 
   def index
     @varieties = Variety.all
@@ -20,7 +21,6 @@ class VarietiesController < ApplicationController
   end
 
   def edit
-    admin_only
     @variety = Variety.find(params[:id])
   end
 
@@ -35,7 +35,6 @@ class VarietiesController < ApplicationController
   end
 
   def update
-    admin_only
     @variety = Variety.find(params[:id])
     @variety.update(variety_params)
     if @variety.save
@@ -46,7 +45,6 @@ class VarietiesController < ApplicationController
   end
 
   def destroy
-    admin_only
     @variety = Variety.find(params[:id])
     @variety.destroy
     redirect_to varieties_path

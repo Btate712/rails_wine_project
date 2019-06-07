@@ -5,6 +5,7 @@ class Variety < ApplicationRecord
   has_many :wines
 
   def self.red
+    # scope :searched_color, (color) -> { where(color: color) }
     where(color: 'red')
   end
 

@@ -1,5 +1,6 @@
 class WinesController < ApplicationController
   before_action :require_login
+  before_action :admin_only, only: [:edit, :update, :destroy]
 
   def index
     if params[:wine_color]
@@ -30,7 +31,6 @@ class WinesController < ApplicationController
   end
 
   def edit
-    admin_only
     @wine = Wine.find(params[:id])
     @varieties = Variety.all
   end
@@ -46,7 +46,6 @@ class WinesController < ApplicationController
   end
 
   def update
-    admin_only
     @wine = Wine.find(params[:id])
     @wine.update(wine_params)
     if @wine.save
@@ -57,7 +56,6 @@ class WinesController < ApplicationController
   end
 
   def destroy
-    admin_only
     @wine = Wine.find(params[:id])
     @wine.reviews.each { |review| review.destroy }
     @wine.destroy
