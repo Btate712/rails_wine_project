@@ -2,13 +2,18 @@ class VarietiesController < ApplicationController
   before_action :require_login
   before_action :admin_only, only: [:edit, :update, :destroy]
 
+  def popular
+    @variety = Variety.popular.first
+    # render 'varieties/popular'
+  end
+
   def index
     @varieties = Variety.all
   end
 
   def show
     if params[:id] == "red" || params[:id] == "white" || params[:id] == "pink"
-      @varieties = Variety.send(params[:id])
+      @varieties = Variety.selected_color(params[:id])
       render 'varieties/index'
     else
       @variety = Variety.find(params[:id])

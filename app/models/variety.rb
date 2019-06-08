@@ -4,16 +4,11 @@ class Variety < ApplicationRecord
 
   has_many :wines
 
-  def self.red
-    # scope :searched_color, (color) -> { where(color: color) }
-    where(color: 'red')
-  end
+ #  scope :red, -> { where(color: 'red') }
+ #  scope :white, -> { where(color: 'white') }
+ #  scope :pink, -> { where(color: 'pink') }
 
-  def self.white
-    where(color: 'white')
-  end
+  scope :selected_color, -> (color) { where(color: color) }
 
-  def self.pink
-    where(color: 'pink')
-  end
+  scope :popular, -> { joins(:wines).group(:variety_id).order("count(wines.id) DESC").limit(1)}
 end

@@ -14,17 +14,11 @@ class Wine < ApplicationRecord
     where(variety: v)
   end
 
-  def self.red
-    Wine.all.select { |wine| Variety.red.include?(wine.variety) }
+  def self.selected_color(color)
+    Wine.all.select { |wine| Variety.selected_color(color).include?(wine.variety) }
   end
 
-  def self.white
-    Wine.all.select { |wine| Variety.white.include?(wine.variety) }
-  end
-
-  def self.pink
-    Wine.all.select { |wine| Variety.pink.include?(wine.variety) }
-  end
+  
 
   def average_rating
     if self.reviews.count > 0

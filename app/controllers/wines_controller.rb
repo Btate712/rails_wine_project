@@ -3,17 +3,8 @@ class WinesController < ApplicationController
   before_action :admin_only, only: [:edit, :update, :destroy]
 
   def index
-    if params[:wine_color]
-      case params[:wine_color]
-      when 'red'
-        @wines = Wine.red
-      when 'white'
-        @wines = Wine.white
-      when 'pink'
-        @wines = Wine.pink
-      when 'all'
-        @wines = Wine.all
-      end
+    if params[:wine_color] && params[:wine_color] != 'all'
+      @wines = Wine.selected_color(params[:wine_color])
     else
       @wines = Wine.all
     end

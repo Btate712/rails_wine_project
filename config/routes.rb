@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'sessions/login'
+  get 'varieties/popular', to: 'varieties#popular'
+  
   resources :varieties
   resources :wines do
     resources :reviews, only: [:index, :show, :new]
@@ -18,4 +20,6 @@ Rails.application.routes.draw do
   # Routes for Google authentication
   get 'auth/:provider/callback', to: 'sessions#googleAuth'
   get 'auth/failure', to: redirect('/')
+
+
 end
